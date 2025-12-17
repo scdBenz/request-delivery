@@ -1,19 +1,21 @@
 package request_delivery.model;
 
-public class Driver {
+public class Client {
     private Long id;
     private String name;
     private String contactNumber;
-    private  Machine machine;
+    private String address;
+    private boolean isLegalEntity;
 
-    public Driver() {
+    public Client() {
     }
 
-    public Driver(Long id, String name, String contactNumber, Machine machine) {
+    public Client(Long id, String name, String contactNumber, String address, boolean isLegalEntity) {
         this.id = id;
         this.name = name;
         this.contactNumber = contactNumber;
-        this.machine = machine;
+        this.address = address;
+        this.isLegalEntity = isLegalEntity;
     }
 
     public Long getId() {
@@ -40,21 +42,30 @@ public class Driver {
         this.contactNumber = contactNumber;
     }
 
-    public Machine getMachine() {
-        return machine;
+    public String getAddress() {
+        return address;
     }
 
-    public void setMachine(Machine machine) {
-        this.machine = machine;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public boolean isLegalEntity() {
+        return isLegalEntity;
+    }
+
+    public void setLegalEntity(boolean legalEntity) {
+        isLegalEntity = legalEntity;
     }
 
     @Override
     public String toString() {
-        return "Driver{" +
+        return "Client{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", contactNumber='" + contactNumber + '\'' +
-                ", machine=" + machine +
+                ", address='" + address + '\'' +
+                ", isLegalEntity=" + isLegalEntity +
                 '}';
     }
 }
