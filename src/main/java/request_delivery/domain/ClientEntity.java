@@ -1,21 +1,36 @@
-package request_delivery.model;
+package request_delivery.domain;
 
-public class Client {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "clients")
+public class ClientEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String contactNumber;
-    private String address;
-    private boolean isLegalEntity;
 
-    public Client() {
+    @Column(name = "name",  nullable = false)
+    private String name;
+
+    @Column(name = "contact_number")
+    private String contactNumber;
+
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "is_legal_entity")
+    private boolean legalEntity;
+
+    public ClientEntity() {
     }
 
-    public Client(Long id, String name, String contactNumber, String address, boolean isLegalEntity) {
+    public ClientEntity(Long id, String name, String contactNumber, String address, boolean legalEntity) {
         this.id = id;
         this.name = name;
         this.contactNumber = contactNumber;
         this.address = address;
-        this.isLegalEntity = isLegalEntity;
+        this.legalEntity = legalEntity;
     }
 
     public Long getId() {
@@ -51,11 +66,11 @@ public class Client {
     }
 
     public boolean isLegalEntity() {
-        return isLegalEntity;
+        return legalEntity;
     }
 
     public void setLegalEntity(boolean legalEntity) {
-        isLegalEntity = legalEntity;
+        this.legalEntity = legalEntity;
     }
 
     @Override
@@ -65,7 +80,7 @@ public class Client {
                 ", name='" + name + '\'' +
                 ", contactNumber='" + contactNumber + '\'' +
                 ", address='" + address + '\'' +
-                ", isLegalEntity=" + isLegalEntity +
+                ", legalEntity=" + legalEntity +
                 '}';
     }
 }
